@@ -109,12 +109,12 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
 
         // add https if scheme is not included
         if (!serverURL.contains("://")) {
-            serverURL = "https://" + serverURL;
+            serverURL = "http://" + serverURL;
         }
 
         Uri serverUri = Uri.parse(serverURL);
         if (serverUri.isRelative()) {
-            serverUri = serverUri.buildUpon().scheme("https").build();
+            serverUri = serverUri.buildUpon().scheme("http").build();
         }
 
         // if does not begin with "api.zulip.com" and if the path is empty, use "/api" as first segment in the path
